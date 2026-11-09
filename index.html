@@ -22,8 +22,10 @@
     <script>
         async function gerarKey() {
             try {
-                let resposta = await fetch('keys.json');
+                // Link direto e completo para o keys.json funcionar sem erros
+                let resposta = await fetch('https://cauamamaro7-coder.github.io/painel-vip/keys.json');
                 let dados = await resposta.json();
+                
                 let keySorteada = dados.keys_validas[Math.floor(Math.random() * dados.keys_validas.length)];
                 document.getElementById('res').innerHTML = `<b>${keySorteada}</b>`;
             } catch (erro) {
