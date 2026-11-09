@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel 8 Ball Pool VIP</title>
+    <style>
+        body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        .box { background: #1e1e1e; padding: 25px; border-radius: 10px; display: inline-block; width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        button { background: #6200ee; color: #fff; border: none; padding: 12px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; margin-top: 15px; }
+        button:hover { background: #3700b3; }
+        .msg { color: #03dac6; margin-top: 15px; word-break: break-all; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Painel 8 Ball Pool VIP</h2>
+        <button onclick="gerar()">Gerar Nova Key</button>
+        <div id="res" class="msg">A tua key vai aparecer aqui</div>
+    </div>
+    <script>
+        function gerar() {
+            const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let p1 = '', p2 = '';
+            for(let i=0; i<4; i++) {
+                p1 += c.charAt(Math.floor(Math.random() * c.length));
+                p2 += c.charAt(Math.floor(Math.random() * c.length));
+            }
+            document.getElementById('res').innerHTML = `<b>VIP-${p1}-${p2}</b>`;
+        }
+    </script>
+</body>
+</html>
