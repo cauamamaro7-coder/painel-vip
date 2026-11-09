@@ -15,18 +15,20 @@
 <body>
     <div class="box">
         <h2>Painel 8 Ball Pool VIP</h2>
-        <button onclick="gerar()">Gerar Nova Key</button>
-        <div id="res" class="msg">A tua key vai aparecer aqui</div>
+        <button onclick="gerarKey()">Obter Key Válida</button>
+        <div id="res" class="msg">Clica no botão para ver a key</div>
     </div>
+
     <script>
-        function gerar() {
-            const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let p1 = '', p2 = '';
-            for(let i=0; i<4; i++) {
-                p1 += c.charAt(Math.floor(Math.random() * c.length));
-                p2 += c.charAt(Math.floor(Math.random() * c.length));
+        async function gerarKey() {
+            try {
+                let resposta = await fetch('keys.json');
+                let dados = await resposta.json();
+                let keySorteada = dados.keys_validas[Math.floor(Math.random() * dados.keys_validas.length)];
+                document.getElementById('res').innerHTML = `<b>${keySorteada}</b>`;
+            } catch (erro) {
+                document.getElementById('res').innerHTML = "<span style='color:red;'>Erro ao carregar keys</span>";
             }
-            document.getElementById('res').innerHTML = `<b>VIP-${p1}-${p2}</b>`;
         }
     </script>
 </body>
